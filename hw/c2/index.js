@@ -32,6 +32,7 @@ function check(userName) {
             .then(data => {
                 alert('fetch complete')
                 console.log(data)
+                document.getElementById('img').src=`${data.avatar_url}`
                 document.getElementById('name').innerHTML = `${data.name}`,
                     document.getElementById('name').innerHTML = `${data.name}`,
                     document.getElementById('id').innerHTML = `${data.id}`,
