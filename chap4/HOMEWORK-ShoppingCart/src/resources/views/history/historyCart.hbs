@@ -1,0 +1,46 @@
+<div class="container position-absolute top-50 start-50 translate-middle">
+    <div class="mb-5">
+        <h2 class="text-center">Cart</h2>
+    </div>
+    <div class="return-home position-absolute">
+        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Home">
+            <a href="/home"><i class="fas fa-shopping-cart fs-3"></i></a>
+        </span>
+    </div>
+    <div class="history position-absolute">
+        <span data-toggle="tooltip" data-bs-placement="top" title="History">
+            <a href="/history"><i class="fas fa-history fs-3"></i></a>
+        </span>
+    </div>
+    <div class="cart-content">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Origin</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Total($)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each cart}}
+                    <tr>
+                        <th scope="row">{{sum @index 1}}</th>
+                        <td>{{this.name}}</td>
+                        <td>{{this.origin}}</td>
+                        <td>{{this.price}}$ / 1Kg</td>
+                        <td>{{this.amount}}</td>
+                        <td class="total">{{mul this.price this.amount}}</td>
+                    </tr>
+                {{/each}}
+                <tr>
+                    <th colspan="1">Totals($)</th>
+                    <td colspan="4"></td>
+                    <td colspan="1" class="totals">{{totals}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>  
+</div>

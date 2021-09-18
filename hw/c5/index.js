@@ -8,5 +8,5 @@ const port=2000
 mongoose.connect(db)
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use("/manga",mangaRouter)
+app.use("/manga",mangaRouter)//de trc express thi loi
 app.listen(port, () => console.log('Server dang lang nghe tren cong',port));

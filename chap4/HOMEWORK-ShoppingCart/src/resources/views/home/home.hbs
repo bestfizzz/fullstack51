@@ -1,0 +1,42 @@
+<div class="container position-absolute top-50 start-50 translate-middle">
+    <div class="header">
+        {{> header}}
+    </div>
+    <div class="content">
+        <div class="home">
+            <div class="cart position-absolute">
+                <span data-toggle="tooltip" data-bs-placement="top" title="Cart">
+                    <a href="/cart"><i class="fas fa-shopping-basket fs-3"></i></a>
+                </span>
+            </div>
+            <div class="row mt-4">
+                {{#each fruits}}
+                    <div id="{{this._id}}" class="col-sm-6 mt-4 fruit-card">
+                        <div class="card px-1">
+                            <div class="row g-0 ">
+                                <div class="col-md-4">
+                                    <img src="{{this.image}}" class="card-img-top" alt="image_{{this.name}}">
+                                </div>
+                                <div class="card-body col-md-6 margin-auto">
+                                    <h5 class="card-title fs-4">{{this.name}}</h5>
+                                    <p class="card-text">Origin: {{this.origin}}</p>
+                                    <p class="card-text">Price: {{this.price}}$ / 1Kg</p>
+                                </div>
+                                <div class="col-md-2 text-center margin-auto">
+                                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="Buy">
+                                        <i class="fas fa-shopping-cart fs-3" data-bs-toggle="modal" data-bs-target="#buyFruitModal" data-id={{this._id}} data-name={{this.name}} data-image={{this.image}} data-origin={{this.origin}} data-price={{this.price}}></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <div class="footer position-absolute">
+        {{> footer}}
+    </div>  
+</div>
+{{> buyFruitModal}}
+

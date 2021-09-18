@@ -3,8 +3,10 @@ const Joi = require('joi');
 const mangaRouter = express.Router();
 const MangaModel = require('../model/MangaModel.js');
 
-mangaRouter.get('/', (req, res) => {
-    res.json(mangas)
+mangaRouter.get('/:id', (req, res) => {
+    MangaModel.findById({
+        _id: req.params.id
+    },)
 });
 
 mangaRouter.post('/', (req, res) => {
@@ -43,7 +45,7 @@ mangaRouter.put('/:id', (req, res) => {
             if (err) {
                 res.send("xay ra loi update")
             }
-            res.send(manga);
+            res.send("thanh cong");
         })
 });
 
